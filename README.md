@@ -9,7 +9,7 @@ I'd like that I could see a list of bookmarks
 
 ## Domain model
 
-![Bookmark manager domain model](.)
+![Bookmark manager domain model](./public/structure.png)
 
 
 ## How to use
