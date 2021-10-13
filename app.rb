@@ -13,7 +13,7 @@ class BookmarkManager < Sinatra::Base
 
   get "/bookmarks" do
     @bookmarks = Bookmark.all
-    erb :"bookmarks/bookmarks"
+    erb :"bookmarks/index"
   end
 
   # create a sinatra route for new bookmarks 
@@ -22,9 +22,7 @@ class BookmarkManager < Sinatra::Base
   end
 
   post "/bookmarks" do
-    url = params['url']
-    connection = PG.connect(dbname: 'bookmark_manager_test')
-    connection.exec("INSERT INTO bookmarks (url) VALUES('#{url}')")
+    Bookmark.create(url: params[:url])
     redirect '/bookmarks'
   end
 
