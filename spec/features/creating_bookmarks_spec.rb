@@ -1,9 +1,10 @@
 feature 'new bookmarks' do
   scenario 'user creates a new bookmark' do
     visit'/bookmarks/new'
-    fill_in('url', with: 'http://gmail.com')
+    fill_in('url', with: 'http://www.google.com')
+    fill_in('title', with: 'Google')
     click_button 'Submit'
 
-    expect(page).to have_content 'http://gmail.com'
+    expect(page).to have_link('Google', href: 'http://www.google.com')
   end
 end
